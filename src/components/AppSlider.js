@@ -8,19 +8,10 @@ const imageWrapperCss = css`
   height: 350px;
   padding: 0 15px;
   outline: none;
-`;
-
-const imageCss = (src) => css`
-  outline: none;
-  -webkit-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.35);
-  box-shadow: 3px 3px 5px 0px rgba(0, 0, 0, 0.35);
-  width: 100%;
-  height: 100%;
-  background-image: url(${src});
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  img {
+    width: 100%;
+    height: 100%;
+  }
 `;
 
 const Arrow = ({ left, onClick }) => {
@@ -35,6 +26,16 @@ const Arrow = ({ left, onClick }) => {
           border-bottom: 15px solid transparent;
           border-right: 15px solid #bbbbbb;
           margin: 0 20px;
+          transition: all 250ms linear;
+          &:hover,
+          &:active {
+            scale: 1.1;
+            border-right: 15px solid #dddddd;
+          }
+
+          @media screen and (max-width: 481px) {
+            margin: 0;
+          }
         `}
       ></div>
     );
@@ -50,6 +51,15 @@ const Arrow = ({ left, onClick }) => {
         border-top: 15px solid transparent;
         border-bottom: 15px solid transparent;
         border-left: 15px solid #bbbbbb;
+        transition: all 250ms linear;
+        &:hover,
+        &:active {
+          scale: 1.1;
+          border-left: 15px solid #dddddd;
+        }
+        @media screen and (max-width: 481px) {
+          margin: 0;
+        }
       `}
     ></div>
   );
@@ -65,13 +75,34 @@ const AppSlider = ({ items }) => {
     autoplay: true,
     nextArrow: <Arrow />,
     prevArrow: <Arrow left={true} />,
+    responsive: [
+      {
+        breakpoint: 1025,
+        settings: {
+          slidesToShow: 3,
+        },
+      },
+      {
+        breakpoint: 769,
+        settings: {
+          slidesToShow: 2,
+        },
+      },
+      {
+        breakpoint: 481,
+        settings: {
+          slidesToShow: 1,
+          arrows: false,
+        },
+      },
+    ],
   };
 
   return (
     <Slider {...settings}>
-      {items.map((item) => (
-        <div css={imageWrapperCss}>
-          <div css={imageCss(item.src)} />
+      {items.map((item, idx) => (
+        <div key={idx} css={imageWrapperCss}>
+          <img src={item.src} alt={item.alt} />
         </div>
       ))}
     </Slider>

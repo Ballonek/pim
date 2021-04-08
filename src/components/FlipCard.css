@@ -17,7 +17,8 @@
 }
 
 /* Do an horizontal flip when you move the mouse over the flip box container */
-.flip-card:hover .flip-card-inner {
+.flip-card:hover .flip-card-inner,
+.flip-card:active .flip-card-inner {
   transform: rotateY(180deg);
 }
 
@@ -36,14 +37,16 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-weight: bold;
   font-family: 'Roboto Mono', monospace;
 }
 
 /* Style the front side (fallback if image is missing) */
 .flip-card-front {
+  font-weight: bold;
   background-color: #e1e1e1;
   color: #3c3c3c;
+  font-size: 18px;
+  letter-spacing: 2px;
 }
 
 /* Style the back side */
@@ -51,4 +54,14 @@
   background-color: #1943bb;
   color: white;
   transform: rotateY(180deg);
+  font-weight: 400;
+}
+
+@media screen and (max-width: 769px) {
+  .flip-card {
+    height: 120px;
+  }
+  .flip-card-front {
+    font-size: 15px;
+  }
 }

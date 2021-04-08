@@ -1,0 +1,58 @@
+{
+  "AboutTop": "<div>Naše firma působí na trhu od roku 2018. Její kvalita vyplývá z našich předešlých dlouholetých zkušeností v oboru.</div><div>Pravidelně působíme na území ČR, Lucemburska, Německa, Polska, Slovenska, Lotyšska, Anglii.</div>",
+  "About": "Našim cílem je precizně zhotovená zakázka a spokojený zákazník.<br />Dáváme si záležet na dobře <span>odvedené práci</span>, <span>která přetrvá</span>.",
+  "Services": {
+    "heading": "Naše služby",
+    "service1": {
+      "front": "Zámečnické<br /> a svářečské práce",
+      "back": "Všestranné zakázkové práce<br /> s běžně užívanými materiály přesně na míru Vašim potřebám"
+    },
+    "service2": {
+      "front": "Průmyslová údržba",
+      "back": "Spolehlivá prevence proti zkomplikování či neplánované odstávce Vašeho provozu"
+    },
+    "service3": {
+      "front": "Montážní práce",
+      "back": "Profesionální instalace nových výrobních zařízení, strojů či průmyslových regálů"
+    },
+    "service4": {
+      "front": "Kovovýroba a výroba ocelových konstrukcí",
+      "back": "Zakázková výroba menších i rozměrnějších a složitějších konstrukcí"
+    },
+    "service5": {
+      "front": "Jeřábnické práce",
+      "back": "Neocenitelná pomoc při montážích, přemísťování materiálu nebo havárijích"
+    },
+    "service6": {
+      "front": "Autodoprava<br /> nad 3,5 t",
+      "back": "Transport libovolného nákladu o větší hmotnosti a rozměrech"
+    }
+  },
+  "Works": {
+    "heading": "Ukázka práce",
+    "work1": {
+      "1": "Výroba ocelové konstrukce k technologii kotelny",
+      "2": "Výroba ocelové konstrukce k MDF lisu"
+    },
+    "work2": {
+      "1": "Montáž sesypek",
+      "2": "Montáž regálů",
+      "3": "Výroba a montáž ocelové konstrukce",
+      "4": "Rekonstrukce posuvného stolu"
+    },
+    "work3": {
+      "1": "Výměna podlahy RD"
+    },
+    "work4": {
+      "1": "Pila Javořice – výměna hřídelí a klínků na ježcích (součást hydrauliky, která tlumí náraz)",
+      "2": "Pila Javořice – montáž linky - 2020"
+    },
+    "work5": {
+      "1": "výstavba technologií",
+      "2": "výroba ocelových konstrukcí",
+      "3": "zámečnické a svářečské práce"
+    }
+  },
+  "FooterL": "<h3>Fakturační adresa:</h3><div>PETR INDUSTRIE MONTAGE s.r.o.</div><div>Javorová 265/8, 58812</div><div>Dobronín, Česká republika</div><div>IČO: 07647158</div><div>DIČ: CZ07647158</div><h3>Provozovna</h3><div>Prostor bývalých kasáren</div><div>Pístov u Jihlavy, Česká republika</div>",
+  "FooterR": "<h3>Číslo účtu:</h3><div>EUR: 288455257/0300<br />IBAN CZ02 03000000 0002 8845 5257</div><div>CZK: 288455257/0300<br />IBAN CZ79 0300 0000 0002 9130 0045</div>"
+}

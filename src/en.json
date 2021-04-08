@@ -1,0 +1,53 @@
+{
+  "AboutTop": "<div>The company was established in 2018. Quality of our work arise from long-term experience in branch.</div><div>We are active on a regular basis in Czech Republic, Luxembourg, Germany, Poland, Slovakia, Latvia and England.</div>",
+  "About": "Our goals are flawless work and happy client.<br />We give our <span>best to work that last out</span>.",
+  "Services": {
+    "heading": "Our services",
+    "service1": {
+      "front": "Locksmithing and welding",
+      "back": "Universal custom works with commonly used materials"
+    },
+    "service2": {
+      "front": "Industrial maintenance and repair",
+      "back": "Infallible prevention of costly unplanned downtime"
+    },
+    "service3": {
+      "front": "Montage services",
+      "back": "Professional installation of machines, facilities and industrial racking"
+    },
+    "service4": {
+      "front": "Metalworking and fabrication of steel constructions",
+      "back": "Custom fabrication of smaller or more complex constructions"
+    },
+    "service5": {
+      "front": "Crane operations",
+      "back": "Priceless service for assembling, material transfer or breakdown"
+    },
+    "service6": {
+      "front": "Trucking (above 3.5 t)",
+      "back": "Transport of large and heavy load"
+    }
+  },
+  "Works": {
+    "heading": "Representative works",
+    "work1": {
+      "1": "Steel construction for technology of boiler house",
+      "2": "Steel construction for MDF press"
+    },
+    "work2": {
+      "1": "Pour assembly",
+      "2": "Industrial racking",
+      "3": "Fabrication and montage of steel construction",
+      "4": "Reconstruction of the sliding table"
+    },
+    "work3": {
+      "1": "Replacement of floor"
+    },
+    "work4": {
+      "1": "Javořice sawmill – replacement of shafts and wedges on hydraulic mechanism",
+      "2": "Javořice sawmill – assembling of production line"
+    }
+  },
+  "FooterL": "<h3>Invoice address:</h3><div>PETR INDUSTRIE MONTAGE s.r.o.</div><div>Javorová 265/8, 58812</div><div>Dobronín, Česká republika</div><div>IČO: 07647158</div><div>DIČ: CZ07647158</div><h3>Place of business</h3><div>Prostor bývalých kasáren</div><div>Pístov u Jihlavy, Česká republika</div>",
+  "FooterR": "<h3>Bank account number:</h3><div>EUR: 288455257/0300<br />IBAN CZ02 03000000 0002 8845 5257</div><div>CZK: 288455257/0300<br />IBAN CZ79 0300 0000 0002 9130 0045</div>"
+}

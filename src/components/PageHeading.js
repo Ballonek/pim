@@ -8,7 +8,6 @@ const pageHeagindCss = css`
   display: flex;
   align-items: center;
   background-color: #1a43b7;
-  padding: 0 20px 0 0;
   position: relative;
   -webkit-box-shadow: 3px 0px 16px 3px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 3px 0px 16px 3px rgba(0, 0, 0, 0.35);
@@ -32,7 +31,21 @@ const pageHeagindCss = css`
     color: white;
     margin: 0;
     font-weight: 800;
-    padding: 20px 40px 20px 0;
+    padding: 20px 30px 20px 0;
+    letter-spacing: 2px;
+  }
+
+  @media screen and (max-width: 769px) {
+    h2 {
+      font-size: 24px;
+    }
+  }
+  @media screen and (max-width: 481px) {
+    h2 {
+      padding: 20px 0;
+      font-size: 14px;
+      text-align: left;
+    }
   }
 `;
 

@@ -4,6 +4,9 @@ import { css } from '@emotion/react';
 const contactItemCss = css`
   max-width: 300px;
   flex: 1 1 300px;
+  @media screen and (max-width: 769px) {
+    flex: 1 1 200px;
+  }
 `;
 
 const contactItemContentCss = css`

@@ -1,7 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import { useTranslation } from 'react-i18next';
 import { Container } from 'reactstrap';
 import FlipCard from './FlipCard';
+
+import parse from 'html-react-parser';
 
 const servicesCss = css``;
 
@@ -14,6 +17,17 @@ const servicesContainerCss = css`
     color: #505050;
     padding-bottom: 40px;
   }
+
+  @media screen and (max-width: 769px) {
+    h1 {
+      font-size: 50px;
+    }
+  }
+  @media screen and (max-width: 481px) {
+    h1 {
+      font-size: 40px;
+    }
+  }
 `;
 
 const cardsCss = css`
@@ -23,6 +37,10 @@ const cardsCss = css`
 
   & > div {
     margin: 15px;
+  }
+
+  @media screen and (max-width: 769px) {
+    padding-bottom: 60px;
   }
 `;
 
@@ -38,42 +56,34 @@ const servicesButtonWrapperCss = css`
     box-shadow: 0px 8px 16px 3px rgba(0, 0, 0, 0.35);
     transition: all 200ms linear;
     &:hover  {
-      background-color: #888888;
+      background-color: rgb(25,67, 186);
       scale: 1.1;
     }
+  }
+  @media screen and (max-width: 769px) {
+    padding-bottom: 100px;
   }
 `;
 
 const Services = () => {
+  const { t } = useTranslation();
+
   return (
     <section css={servicesCss}>
       <Container css={servicesContainerCss}>
-        <h1>Naše služby</h1>
+        <h1>{parse(t('ServicesHeading'))}</h1>
         <div css={cardsCss}>
-          <FlipCard
-            frontText='Zámečnické a svářečské práce'
-            backText='Všestranné zakázkové práce s běžně užívanými materiály přesně na míru Vašim potřebám'
-          />
-          <FlipCard
-            frontText='Průmyslová údržba'
-            backText='Spolehlivá prevence proti zkomplikování či neplánované odstávce Vašeho provozu'
-          />
-          <FlipCard
-            frontText='Montážní práce'
-            backText='Profesionální instalace nových výrobních zařízení, strojů či průmyslových regálů'
-          />
-          <FlipCard
-            frontText='Kovovýroba a výroba ocelových konstrukcí'
-            backText='Zakázková výroba menších i rozměrnějších a složitějších konstrukcí'
-          />
-          <FlipCard
-            frontText='Jeřábnické práce'
-            backText='Neocenitelná pomoc při montážích, přemísťování materiálu nebo havárijích'
-          />
-          <FlipCard frontText='Autodoprava nad 3,5 t' backText='o	Transport libovolného nákladu o větší hmotnosti a rozměrech' />
+          <FlipCard frontText={parse(t('Service1Front'))} backText={parse(t('Service1Back'))} />
+          <FlipCard frontText={parse(t('Service2Front'))} backText={parse(t('Service2Back'))} />
+          <FlipCard frontText={parse(t('Service3Front'))} backText={parse(t('Service3Back'))} />
+          <FlipCard frontText={parse(t('Service4Front'))} backText={parse(t('Service4Back'))} />
+          <FlipCard frontText={parse(t('Service5Front'))} backText={parse(t('Service5Back'))} />
+          <FlipCard frontText={parse(t('Service6Front'))} backText={parse(t('Service6Back'))} />
         </div>
         <div css={servicesButtonWrapperCss}>
-          <button>Kontaktujte nás</button>
+          <a href='#contact'>
+            <button>{t('ServiceButton')}</button>
+          </a>
         </div>
       </Container>
     </section>

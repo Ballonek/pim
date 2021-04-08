@@ -1,7 +1,10 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
+import { useTranslation } from 'react-i18next';
 import { Container } from 'reactstrap';
 import { ReactComponent as Logo } from '../images/pim_logo-01.svg';
+
+import parse from 'html-react-parser';
 
 const footerCss = css`
   background-color: #1a1a1a;
@@ -10,11 +13,14 @@ const footerCss = css`
 const footerContainerCss = css`
   display: flex;
   justify-content: space-between;
+  @media screen and (max-width: 481px) {
+    flex-direction: column;
+  }
 `;
 
 const footerLeftCss = css`
   font-family: 'Roboto Mono', monospace;
-  color: white;
+  color: rgb(187, 187, 187);
   padding: 40px 0;
   letter-spacing: 1px;
   h3 {
@@ -22,6 +28,20 @@ const footerLeftCss = css`
   }
   div  {
     margin-top: 3px;
+  }
+  @media screen and (max-width: 769px) {
+    font-size: 14px;
+    h3 {
+      font-size: 22px;
+    }
+  }
+  @media screen and (max-width: 481px) {
+    font-size: 12px;
+    padding: 40px 0;
+    h3 {
+      font-size: 14px;
+      margin-top: 20px;
+    }
   }
 `;
 
@@ -33,6 +53,7 @@ const footerRightCss = css`
   flex-direction: column;
   align-items: end;
   .content {
+    letter-spacing: 1px;
     height: 100%;
     padding: 40px;
     background-color: #1940b5;
@@ -46,49 +67,74 @@ const footerRightCss = css`
       margin-top: 20px;
     }
   }
+  @media screen and (max-width: 769px) {
+    font-size: 14px;
+    h3 {
+      font-size: 22px;
+    }
+  }
+  @media screen and (max-width: 481px) {
+    align-items: start;
+    text-align: left;
+    font-size: 12px;
+    padding: 0;
+    position: relative;
+    h3 {
+      font-size: 14px;
+    }
+    .content {
+      padding: 30px 30px 30px 0;
+      &:before {
+        height: 100%;
+        width: 100%;
+        content: '';
+        position: absolute;
+        background-color: #1940b5;
+        left: -100%;
+        top: 0;
+      }
+    }
+  }
 `;
 
 const logoWrapperCss = css`
-  width: 100px;
-  height: 100px;
+  padding-bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  padding-right: 40px;
+  div {
+    width: 100px;
+    margin: 0;
+  }
   svg {
     height: 100%;
     width: 100%;
   }
+  @media screen and (max-width: 769px) {
+    height: 61px;
+    width: 110px;
+    padding-bottom: 20px;
+  }
+  @media screen and (max-width: 481px) {
+    margin: 0;
+  }
 `;
 
 const Footer = () => {
+  const { t } = useTranslation();
+
   return (
     <footer css={footerCss}>
       <Container css={footerContainerCss}>
-        <div css={footerLeftCss}>
-          <h3>Fakturační adresa:</h3>
-          <div>PETR INDUSTRIE MONTAGE s.r.o.</div>
-          <div>Javorová 265/8, 58812</div>
-          <div>Dobronín, Česká Republika</div>
-          <div>IČO: 07647158</div>
-          <div>DIČ: CZ07647158</div>
-          <h3>Provozovna</h3>
-          <div>Prostor bývalých kasáren</div>
-          <div>Pístov u Jihlavy, Česká Republika</div>
-        </div>
+        <div css={footerLeftCss}>{parse(t('FooterL'))}</div>
         <div css={footerRightCss}>
           <div css={logoWrapperCss}>
-            <Logo fill='#b4b4b4' />
-          </div>
-          <div className='content'>
-            <h3>Číslo účtu:</h3>
             <div>
-              EUR: 288455257/0300
-              <br />
-              IBAN CZ02 03000000 0002 8845 5257
-            </div>
-            <div>
-              CZK: 288455257/0300
-              <br />
-              IBAN CZ79 0300 0000 0002 9130 0045
+              <Logo fill='#b4b4b4' />
             </div>
           </div>
+          <div className='content'>{parse(t('FooterR'))}</div>
         </div>
       </Container>
     </footer>

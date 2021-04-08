@@ -1,7 +1,9 @@
 /** @jsxImportSource @emotion/react */
+import { useState } from 'react';
 import { css } from '@emotion/react';
 import { Container } from 'reactstrap';
 import bg from '../images/uvodka_01.jpg';
+import { useTranslation } from 'react-i18next';
 
 const headerCss = css`
   min-height: 70vh;
@@ -9,8 +11,8 @@ const headerCss = css`
   position: relative;
   font-family: 'Roboto Mono', monospace;
   background-image: url(${bg});
-  backgroud-size: cover;
-  backgroud-position: center;
+  background-size: cover;
+  background-position: top;
 `;
 
 const headerWrapperCss = css`
@@ -28,20 +30,51 @@ const headerContainerCss = css`
 
 const languageSelectorCss = css`
   color: white;
-  background-color: black;
   -webkit-box-shadow: 3px 0px 16px 3px rgba(0, 0, 0, 0.35);
   -moz-box-shadow: 3px 0px 16px 3px rgba(0, 0, 0, 0.35);
   box-shadow: 3px 0px 16px 3px rgba(0, 0, 0, 0.35);
 
   ul {
+    padding: 0;
     display: flex;
     list-style: none;
     margin: 0;
-    padding: 30px;
     font-weight: bold;
     align-items: center;
     justify-content: center;
     height: 100%;
+    li {
+      background-color: black;
+      cursor: pointer;
+      padding: 20px;
+      color: rgba(255, 255, 255, 0.5);
+    }
+    .active {
+      color: rgba(255, 255, 255, 1);
+    }
+  }
+  @media screen and (max-width: 481px) {
+    ul  {
+      li {
+        height: 100%;
+      }
+      .active {
+        display: block;
+      }
+    }
+    .opend {
+      li {
+        display: block;
+      }
+    }
+    .closed {
+      li {
+        display: none;
+      }
+      .active {
+        display: block;
+      }
+    }
   }
 `;
 
@@ -76,6 +109,18 @@ const pageHeagindCss = css`
     margin: 0;
     letter-spacing: 3px;
   }
+  @media screen and (max-width: 481px) {
+    width: 65%;
+    padding-right: 20px;
+    h1  {
+      font-size: 18px;
+    }
+  }
+  @media screen and (max-width: 375px) {
+    h1  {
+      font-size: 15px;
+    }
+  }
 `;
 
 const navWrapperCss = css`
@@ -88,15 +133,15 @@ const navWrapperCss = css`
 const navContainerCss = css`
   ul {
     list-style: none;
-    margin: 30px 0 0 0;
+    margin: 30px 0 0 20px;
     padding: 0;
     align-items: center;
     justify-content: center;
     height: 100%;
     li {
-      padding: 2px;
+      padding: 2px 0;
       a {
-        letter-spacing: 1px;
+        letter-spacing: 2px;
         color: white;
         transition: color 200ms linear;
         &:hover  {
@@ -106,9 +151,23 @@ const navContainerCss = css`
       }
     }
   }
+  @media screen and (max-width: 481px) {
+    ul {
+      li {
+        padding: 3px 0;
+      }
+    }
+  }
 `;
 
 const Header = () => {
+  const [language, setLanguage] = useState(false);
+  const { i18n, t } = useTranslation();
+
+  const activeLanguage = i18n.language;
+
+  console.log(activeLanguage);
+
   return (
     <header css={headerCss}>
       <div css={headerWrapperCss}>
@@ -117,8 +176,13 @@ const Header = () => {
             <h1>PETR INDUSTRIE MONTAGE s.r.o.</h1>
           </div>
           <div css={languageSelectorCss}>
-            <ul>
-              <li>CZ</li>
+            <ul className={language ? 'opend' : 'closed'} onClick={() => setLanguage(!language)}>
+              <li onClick={() => i18n.changeLanguage('cs')} className={activeLanguage === 'cs' ? 'active' : 'closed'}>
+                CZ
+              </li>
+              <li onClick={() => i18n.changeLanguage('en')} className={activeLanguage === 'en' ? 'active' : 'closed'}>
+                EN
+              </li>
             </ul>
           </div>
         </Container>
@@ -128,16 +192,16 @@ const Header = () => {
           <nav>
             <ul>
               <li>
-                <a href='#about'>O nás</a>
+                <a href='/#about'>{t('Menu1')}</a>
               </li>
               <li>
-                <a href='#our-work'>Naše práce</a>
+                <a href='/#our-work'>{t('Menu2')}</a>
               </li>
               <li>
-                <a href='#partners'>Partneři</a>
+                <a href='/#partners'>{t('Menu3')}</a>
               </li>
               <li>
-                <a href='#contact'>Kontakt</a>
+                <a href='/#contact'>{t('Menu4')}</a>
               </li>
             </ul>
           </nav>

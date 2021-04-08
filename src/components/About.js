@@ -1,8 +1,9 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import { faIndustry } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { useTranslation } from 'react-i18next';
 import { Container } from 'reactstrap';
+import parse from 'html-react-parser';
+import { ReactComponent as Icon } from '../images/ikona_01-01.svg';
 
 const aboutCss = css``;
 
@@ -11,20 +12,37 @@ const aboutContainerCss = css`
 `;
 
 const aboutTopCss = css`
+  letter-spacing: 1px;
   color: white;
-  background-color: #173dac;
+  background-color: rgba(23, 61, 172, 0.98);
   position: relative;
   top: -120px;
   display: flex;
   justify-content: center;
-  -webkit-box-shadow: 0px 8px 16px 3px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 0px 8px 16px 3px rgba(0, 0, 0, 0.35);
-  box-shadow: 0px 8px 16px 3px rgba(0, 0, 0, 0.35);
+  -webkit-box-shadow: 0px 8px 16px 3px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 8px 16px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 8px 16px 3px rgba(0, 0, 0, 0.5);
+  @media screen and (max-width: 481px) {
+    flex-direction: column;
+    align-items: center;
+  }
 `;
 
 const aboutIconWrapperCss = css`
-  font-size: 100px;
+  width: 300px;
   padding: 80px 0 80px 80px;
+  svg {
+    width: 100%;
+    height: 100%;
+  }
+  @media screen and (max-width: 769px) {
+    padding: 40px 0 40px 40px;
+  }
+  @media screen and (max-width: 481px) {
+    width: 100px;
+    font-size: 14px;
+    padding: 40px 0 0 0;
+  }
 `;
 
 const aboutTextWrapperCss = css`
@@ -37,6 +55,15 @@ const aboutTextWrapperCss = css`
     margin-bottom: 20px;
     font-family: 'Cabin', sans-serif;
   }
+  @media screen and (max-width: 769px) {
+    font-size: 16px;
+    padding: 60px 60px 60px 40px;
+  }
+  @media screen and (max-width: 481px) {
+    font-size: 14px;
+    padding: 10px 30px 30px 30px;
+    text-align: center;
+  }
 `;
 
 const aboutMidCss = css`
@@ -45,32 +72,33 @@ const aboutMidCss = css`
   text-align: center;
   font-size: 28px;
   letter-spacing: 1px;
-  padding-bottom: 120px;
+  padding: 60px 0 120px;
   span {
     color: #868686;
+  }
+
+  @media screen and (max-width: 769px) {
+    font-size: 20px;
+  }
+  @media screen and (max-width: 481px) {
+    font-size: 14px;
+    padding-bottom: 90px;
   }
 `;
 
 const About = () => {
+  const { t } = useTranslation();
+
   return (
-    <section css={aboutCss}>
+    <section css={aboutCss} id='about'>
       <Container css={aboutContainerCss}>
         <div css={aboutTopCss}>
           <div css={aboutIconWrapperCss}>
-            <FontAwesomeIcon icon={faIndustry} />
+            <Icon fill='#97a7da' />
           </div>
-          <div css={aboutTextWrapperCss}>
-            <div>
-              Naše firma působí na trhu od roku 2018. Její kvalita vyplývá z našich předešlých dlouholetých zkušeností v oboru.
-            </div>
-            <div>Pravidelně působíme na území ČR, Lucemburska, Německa, Polska, Slovenska, Lotyšska, Anglii.</div>
-          </div>
+          <div css={aboutTextWrapperCss}>{parse(t('AboutTop'))}</div>
         </div>
-        <div css={aboutMidCss}>
-          Našim cílem je precizně zhotovená zakázka a spokojený zákazník.
-          <br />
-          Dáváme si záležet na dobře <span>odvedené práci</span>, <span>která přetrvá</span>.
-        </div>
+        <div css={aboutMidCss}>{parse(t('About'))}</div>
       </Container>
     </section>
   );
